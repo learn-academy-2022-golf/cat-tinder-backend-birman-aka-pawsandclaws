@@ -21,4 +21,9 @@ RSpec.describe Cat, type: :model do
     cat = Cat.create enjoys: "food"
     expect(cat.errors[:enjoys]).to_not be_empty
   end
+  it "should validate enjoys is at least 10 characters long" do
+    cat = Cat.create 
+    cat.update enjoys: "food"
+    expect(cat.errors[:enjoys]).to_not be_empty
+  end
 end
